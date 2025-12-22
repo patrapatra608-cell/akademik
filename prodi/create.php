@@ -9,25 +9,27 @@
   <body>
     <div>
         <form action="proses.php" method="post">
-        <h1 style="color: #ffff; text-align: center;">Input data mahasiswa</h1>
+        <h1>Input data prodi</h1>
         <div class="mb-3">
-            <label for="nim" class="form-label" style="color: #ffff;">NIM</label>
-            <input type="text" class="form-control" id="nim" name="nim" placeholder="123456789">
+            <label for="nama_prodi">Nama Prodi</label>
+            <input type="text" class="form-control" id="nama_prodi" name="nama_prodi">
         </div>
         <div class="mb-3">
-            <label for="nama_mhs" class="form-label" style="color: #ffff;">Nama</label>
-            <input type="text" class="form-control" id="nama_mhs" name="nama_mhs">
+            <label class="form-label">Jenjang</label>
+            <select class="form-control" name="jenjang" id="jenjang" required>
+                <option value="">-- Pilih Jenjang --</option>
+                <option value="D2">D2</option>
+                <option value="D3">D3</option>
+                <option value="D4">D4</option>
+                <option value="S2">S2</option>
+            </select>
         </div>
         <div class="mb-3">
-            <label for="tgl_lahir" class="form-label" style="color: #ffff;">Tanggal Lahir</label>
-            <input type="date" class="form-control" id="tgl_lahir" name="tgl_lahir">
-        </div>
-        <div class="mb-3">
-            <label for="alamat" class="form-label" style="color: #ffff;">Alamat</label>
-            <input type="text" class="form-control" id="alamat" name="alamat">
+            <label for="keterangan" class="form-label">keterangan</label>
+            <textarea class="form-control" id="keterangan" name="keterangan" rows="3"></textarea>
         </div>
         <div>
-            <button type="submit" name="submit" class="btn btn-success">Simpan</button>
+            <button type="submit" name="submitp" class="btn btn-success">Simpan</button>
             <a href="index.php" class="btn btn-secondary">Kembali</a>
         </div>
     </div>

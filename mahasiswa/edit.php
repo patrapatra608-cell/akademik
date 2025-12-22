@@ -11,14 +11,14 @@ $data = mysqli_fetch_assoc($tampil);
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Edit Data Tamu</title>
+    <title>Edit Data mahasiswa</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
 
 </head>
 <body>
 
 <div>
-    <h2 style="color: white;">Edit Data Mahasiswa</h2>
+    <h2>Edit Data Mahasiswa</h2>
 
     <form action="proses.php" method="post">
 
@@ -26,22 +26,22 @@ $data = mysqli_fetch_assoc($tampil);
         <input type="hidden" name="nim_lama" value="<?= $data['nim'] ?>">
 
         <div class="mb-3">
-            <label for="nim" class="form-label" style="color: white;">NIM Baru</label>
+            <label for="nim" class="form-label">NIM Baru</label>
             <input type="text" class="form-control" id="nim" name="nim" value="<?= $data['nim'] ?>">
         </div>
 
         <div class="mb-3">
-            <label for="nama_mhs" class="form-label" style="color: white;">Nama</label>
+            <label for="nama_mhs" class="form-label">Nama</label>
             <input type="text" class="form-control" id="nama_mhs" name="nama_mhs" value="<?= $data['nama_mhs'] ?>">
         </div>
 
         <div class="mb-3">
-            <label for="tgl_lahir" class="form-label" style="color: white;">Tanggal Lahir</label>
+            <label for="tgl_lahir" class="form-label">Tanggal Lahir</label>
             <input type="date" class="form-control" id="tgl_lahir" name="tgl_lahir" value="<?= $data['tgl_lahir'] ?>">
         </div>
 
         <div class="mb-3">
-            <label for="alamat" class="form-label" style="color: white;">Alamat</label>
+            <label for="alamat" class="form-label">Alamat</label>
             <input type="text" class="form-control" id="alamat" name="alamat" value="<?= $data['alamat'] ?>">
         </div>
         <button type="submit" name="update" class="btn btn-primary">Simpan Perubahan</button>
