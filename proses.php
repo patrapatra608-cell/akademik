@@ -7,9 +7,9 @@
         $nama_mhs = $_POST['nama_mhs'];
         $tgl_lahir= $_POST['tgl_lahir'];
         $alamat = $_POST['alamat'];
-        $prodi_id  = $_POST['id_prodi']; // dari form
+        $prodi_id  = $_POST['prodi_id']; // dari form
 
-        $query = "INSERT INTO mahasiswa (nim,  nama_mhs, tgl_lahir, alamat,prodi_is) VALUES ('$nim', '$nama_mhs','$tgl_lahir', '$alamat', '$id_prodi')";
+        $query = "INSERT INTO mahasiswa (nim,  nama_mhs, tgl_lahir, alamat,prodi_id) VALUES ('$nim', '$nama_mhs','$tgl_lahir', '$alamat', '$prodi_id')";
         $sql = $koneksi->query($query);
 
         if ($sql){
@@ -34,29 +34,28 @@
     }
     
     if (isset($_POST['update'])) {
-
-        $nim_lama = $_POST['nim_lama'];  // dipakai di WHERE
-        $nim = $_POST['nim'];
-        $nama_mhs = $_POST['nama_mhs'];
+        $nim_lama  = $_POST['nim_lama'];
+        $nim       = $_POST['nim'];
+        $nama_mhs  = $_POST['nama_mhs'];
         $tgl_lahir = $_POST['tgl_lahir'];
-        $alamat = $_POST['alamat'];
+        $alamat    = $_POST['alamat'];
+        $prodi_id  = $_POST['prodi_id'];
 
-        $query = "UPDATE mahasiswa SET 
-            nim='$nim',
-            nama_mhs='$nama_mhs',
-            tgl_lahir='$tgl_lahir',
-            alamat='$alamat'
-            WHERE nim='$nim_lama'";
+        $query = "UPDATE mahasiswa SET
+                    nim='$nim',
+                    nama_mhs='$nama_mhs',
+                    tgl_lahir='$tgl_lahir',
+                    alamat='$alamat',
+                    prodi_id='$prodi_id'
+                WHERE nim='$nim_lama'";
 
-        $sql = mysqli_query($koneksi, $query);
-
-        if ($sql) {
+        if ($koneksi->query($query)) {
             header("Location: index.php");
-            exit();
         } else {
-            echo "Gagal update: " . mysqli_error($koneksi);
+            echo "Gagal update data";
         }
     }
+
 
     //insert Prodi
     if (isset($_POST['submitp'])) {

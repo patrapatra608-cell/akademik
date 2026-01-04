@@ -1,4 +1,4 @@
-<h1>list data Buku Tamu</h1>
+<h1>list data Prodi</h1>
 
             <table class="table">
                 <thead>

@@ -1,3 +1,17 @@
+<?php 
+//section || cookies
+
+session_start();
+//Cek login sudah ada atau belum
+
+if(!isset($_SESSION['login'])){
+    header("Location: login.php");
+
+
+}
+
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -22,9 +36,14 @@
                 <a class="nav-link" href="index.php?page=home">Home</a>
                 <a class="nav-link" href="index.php?page=datamahasiswa">Data Mahasiswa</a>
                 <a class="nav-link" href="index.php?page=dataprodi">Data Prodi</a>
-                <a class="nav-link active" href="index.php">Data Akademik</a>
-            </div>
+                <a class="nav-link" href="index.php">Data Akademik</a>
+                </div>
         </div>
+        <a href="logout.php" type="buttton"
+            class="btn btn-secondary"
+            onclick="return confirm('Apakah anda ingin keluar?')">
+            Logout
+            </a>
     </div>
 </nav>
 

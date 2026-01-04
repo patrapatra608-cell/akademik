@@ -36,7 +36,7 @@ $data = mysqli_fetch_assoc($tampil);
                 <option value="D2" <?= ($data['jenjang']=='D2')?'selected':''; ?>>D2</option>
                 <option value="D3" <?= ($data['jenjang']=='D3')?'selected':''; ?>>D3</option>
                 <option value="D4" <?= ($data['jenjang']=='D4')?'selected':''; ?>>D4</option>
-                <option value="S2" <?= ($data['jenjang']=='S2')?'selected':''; ?>>S2</option>
+                <option value="S2   " <?= ($data['jenjang']=='S2')?'selected':''; ?>>S2</option>
             </select>
         </div>
 

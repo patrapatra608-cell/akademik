@@ -6,6 +6,9 @@ $nim = $_GET['nim'];  // <-- ambil id dari URL
 // ambil data berdasarkan id
 $tampil = mysqli_query($koneksi, "SELECT * FROM mahasiswa WHERE nim='$nim'");
 $data = mysqli_fetch_assoc($tampil);
+
+// ambil data prodi
+$prodi = $koneksi->query("SELECT * FROM prodi");
 ?>
 
 <!DOCTYPE html>
@@ -17,38 +20,50 @@ $data = mysqli_fetch_assoc($tampil);
 </head>
 <body>
 
-<div>
-    <h2>Edit Data Mahasiswa</h2>
+<div class="container mt-4">
+    <h3>Edit Data Mahasiswa</h3>
 
-    <form action="proses.php" method="post">
+    <form method="POST" action="proses.php">
 
-         <!-- simpan NIM lama buat WHERE -->
-        <input type="hidden" name="nim_lama" value="<?= $data['nim'] ?>">
+        <!-- simpan NIM lama -->
+        <input type="hidden" name="nim_lama" value="<?= $data['nim']; ?>">
 
         <div class="mb-3">
-            <label for="nim" class="form-label">NIM Baru</label>
-            <input type="text" class="form-control" id="nim" name="nim" value="<?= $data['nim'] ?>">
+            <label class="form-label">NIM</label>
+            <input type="text" name="nim" class="form-control" value="<?= $data['nim']; ?>" required>
         </div>
 
         <div class="mb-3">
-            <label for="nama_mhs" class="form-label">Nama</label>
-            <input type="text" class="form-control" id="nama_mhs" name="nama_mhs" value="<?= $data['nama_mhs'] ?>">
+            <label class="form-label">Nama Lengkap</label>
+            <input type="text" name="nama_mhs" class="form-control" value="<?= $data['nama_mhs']; ?>" required>
         </div>
 
         <div class="mb-3">
-            <label for="tgl_lahir" class="form-label">Tanggal Lahir</label>
-            <input type="date" class="form-control" id="tgl_lahir" name="tgl_lahir" value="<?= $data['tgl_lahir'] ?>">
+            <label class="form-label">Tanggal Lahir</label>
+            <input type="date" name="tgl_lahir" class="form-control" value="<?= $data['tgl_lahir']; ?>" required>
         </div>
 
         <div class="mb-3">
-            <label for="alamat" class="form-label">Alamat</label>
-            <input type="text" class="form-control" id="alamat" name="alamat" value="<?= $data['alamat'] ?>">
+            <label class="form-label">Program Studi</label>
+            <select name="prodi_id" class="form-control" required>
+                <option value="">-- Pilih Program Studi --</option>
+                <?php while ($row = $prodi->fetch_assoc()) { ?>
+                    <option value="<?= $row['id']; ?>"
+                        <?= ($row['id'] == $data['prodi_id']) ? 'selected' : ''; ?>>
+                        <?= $row['nama_prodi']; ?> (<?= $row['jenjang']; ?>)
+                    </option>
+                <?php } ?>
+            </select>
         </div>
+
+        <div class="mb-3">
+            <label class="form-label">Alamat</label>
+            <textarea name="alamat" class="form-control"><?= $data['alamat']; ?></textarea>
+        </div>
+
         <button type="submit" name="update" class="btn btn-primary">Simpan Perubahan</button>
-        <a href="index.php" class="btn btn-secondary">Kembali</a>
-
+        <a href="index.php?page=mahasiswa" class="btn btn-secondary">Kembali</a>
     </form>
 </div>
-
 </body>
 </html>

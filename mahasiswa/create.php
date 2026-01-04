@@ -22,7 +22,7 @@
         </div>
         <div class="mb-3">
             <label class="form-label">Program Studi</label>
-            <select name="id_prodi" class="form-control" required>
+            <select name="prodi_id" class="form-control" required>
                 <option value="">-- Pilih Program Studi --</option>
                 <?php while ($row = mysqli_fetch_assoc($prodi)) { ?>
                     <option value="<?= $row['id']; ?>">
@@ -36,7 +36,7 @@
             <textarea name="alamat" class="form-control"></textarea>
         </div>
 
-        <button type="submit" name="submit_mahasiswa" class="btn btn-primary">Submit</button>
+        <button type="submit" name="submit" class="btn btn-primary">Submit</button>
         <a href="index.php?page=mahasiswa" class="btn btn-outline-secondary">Kembali</a>
     </div>
 </form>
