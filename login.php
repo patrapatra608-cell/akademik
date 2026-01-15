@@ -8,7 +8,7 @@
 <body class="bg-light">
 
 <div class="container vh-100 d-flex justify-content-center align-items-center">
-    <div class="card shadow" style="width: 22rem;background: blur;">
+    <div class="card shadow" style="width: 22rem;">
         <div class="card-body">
             <h4 class="card-title text-center mb-4">Login</h4>
 
@@ -38,7 +38,8 @@
                     if ($result->num_rows > 0) {
                         session_start();
                         $_SESSION['login'] = true;
-                        $_SESSION['email'] = $email;
+                        $_SESSION['email'] = $data['email'];
+                        $_SESSION['id'] =$data['id'];
                         header("Location: index.php");
                         exit();
                     } else {

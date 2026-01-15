@@ -36,14 +36,19 @@ if(!isset($_SESSION['login'])){
                 <a class="nav-link" href="index.php?page=home">Home</a>
                 <a class="nav-link" href="index.php?page=datamahasiswa">Data Mahasiswa</a>
                 <a class="nav-link" href="index.php?page=dataprodi">Data Prodi</a>
-                <a class="nav-link" href="index.php">Data Akademik</a>
                 </div>
         </div>
+        <div style="gap:10px;">
+        <a href="index.php?page=profile" type="buttton"
+            class="btn btn-secondary btn-sm">ubah profile
+            </a>
+
         <a href="logout.php" type="buttton"
-            class="btn btn-secondary"
+            class="btn btn-secondary btn-sm"
             onclick="return confirm('Apakah anda ingin keluar?')">
             Logout
             </a>
+        </div>
     </div>
 </nav>
 
@@ -58,6 +63,7 @@ if(!isset($_SESSION['login'])){
     if ($page == 'dataprodi') include 'prodi/listp.php';
     if ($page == 'createp') include 'prodi/create.php';
     if ($page == 'editp') include 'prodi/edit.php';
+    if ($page == 'profile') include 'editprofil.php';
 ?>
 </div>
 
