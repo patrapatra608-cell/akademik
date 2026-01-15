@@ -1,5 +1,5 @@
 <?php
-require 'koneksi.php';
+require __DIR__ . '/../koneksi.php';
 
 $id = $_GET['id'];  // <-- ambil id dari URL
 
@@ -45,7 +45,7 @@ $data = mysqli_fetch_assoc($tampil);
             <input type="text" class="form-control" id="keterangan" name="keterangan" value="<?= $data['keterangan'] ?>">
         </div>
         <button type="submit" name="updatep" class="btn btn-primary">Simpan Perubahan</button>
-        <a href="index.php" class="btn btn-secondary">Kembali</a>
+<a href="index.php?page=home" class="btn btn-secondary">Kembali</a>
 
     </form>
 </div>

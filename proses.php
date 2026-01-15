@@ -9,6 +9,15 @@
         $alamat = $_POST['alamat'];
         $prodi_id  = $_POST['prodi_id']; // dari form
 
+        // Check if NIM already exists
+        $check = $koneksi->query("SELECT nim FROM mahasiswa WHERE nim = '$nim'");
+        if ($check->num_rows > 0) {
+            session_start();
+            $_SESSION['error_nim'] = 'NIM ' . htmlspecialchars($nim) . ' sudah terdaftar. Gunakan NIM yang lain.';
+            header('Location: mahasiswa/create.php');
+            exit();
+        }
+
         $query = "INSERT INTO mahasiswa (nim,  nama_mhs, tgl_lahir, alamat,prodi_id) VALUES ('$nim', '$nama_mhs','$tgl_lahir', '$alamat', '$prodi_id')";
         $sql = $koneksi->query($query);
 

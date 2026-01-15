@@ -32,14 +32,18 @@
                     $email = $_POST['email'];
                     $pass = md5($_POST['password']);
 
-                    $ceklogin = "SELECT * FROM pengguna WHERE email='$email' AND password='$pass'";
-                    $result = $koneksi->query($ceklogin);
+                    $ceklogin = "SELECT * FROM pengguna WHERE email=? AND password=?";
+                    $stmt = $koneksi->prepare($ceklogin);
+                    $stmt->bind_param("ss", $email, $pass);
+                    $stmt->execute();
+                    $result = $stmt->get_result();
 
                     if ($result->num_rows > 0) {
+                        $data = $result->fetch_assoc();
                         session_start();
                         $_SESSION['login'] = true;
                         $_SESSION['email'] = $data['email'];
-                        $_SESSION['id'] =$data['id'];
+                        $_SESSION['id'] = $data['id'];
                         header("Location: index.php");
                         exit();
                     } else {

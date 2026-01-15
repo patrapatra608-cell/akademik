@@ -13,7 +13,7 @@
                 </thead>
                 <tbody>
                     <?php
-                        require 'koneksi.php';
+                        require __DIR__ . '/../koneksi.php';
                        $tampil = $koneksi->query("SELECT mahasiswa.nim, mahasiswa.nama_mhs, mahasiswa.tgl_lahir, mahasiswa.alamat, prodi.nama_prodi, prodi.jenjang FROM mahasiswa JOIN prodi ON mahasiswa.prodi_id = prodi.id");
 
                         //lOOPING Data tamu

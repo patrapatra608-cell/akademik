@@ -12,7 +12,7 @@
                 </thead>
                 <tbody>
                     <?php
-                        require 'koneksi.php';
+                        require __DIR__ . '/../koneksi.php';
                         $tampil = $koneksi->query('SELECT * FROM prodi');
                         //lOOPING Data tamu
                         $i=1;

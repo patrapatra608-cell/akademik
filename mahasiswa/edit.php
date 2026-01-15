@@ -1,5 +1,5 @@
 <?php
-require 'koneksi.php';
+require __DIR__ . '/../koneksi.php';
 
 $nim = $_GET['nim'];  // <-- ambil id dari URL
 
@@ -62,7 +62,7 @@ $prodi = $koneksi->query("SELECT * FROM prodi");
         </div>
 
         <button type="submit" name="update" class="btn btn-primary">Simpan Perubahan</button>
-        <a href="index.php?page=mahasiswa" class="btn btn-secondary">Kembali</a>
+        <a href="index.php?page=home" class="btn btn-secondary">Kembali</a>
     </form>
 </div>
 </body>
